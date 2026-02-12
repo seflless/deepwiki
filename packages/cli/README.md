@@ -14,7 +14,7 @@ That's it. Claude Code will now use deep-wiki automatically when it needs to und
 
 ## Install the CLI
 
-No install needed — just use `npx`:
+Also available as a standalone CLI — useful for piping repo knowledge into any agent or workflow. No install needed, just use `npx`:
 
 ```bash
 npx @seflless/deep-wiki toc facebook/react
