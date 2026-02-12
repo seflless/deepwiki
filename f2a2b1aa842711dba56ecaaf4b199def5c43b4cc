@@ -1,0 +1,35 @@
+packages/cli/tests/cli.test.ts
+  f4bc415830a6ffc8 1-165
+packages/cli/tests/client.test.ts
+  f4bc415830a6ffc8 1-255
+packages/cli/tests/errors.test.ts
+  f4bc415830a6ffc8 1-44
+packages/cli/tests/format.test.ts
+  f4bc415830a6ffc8 1-36
+packages/cli/tests/commands.test.ts
+  f4bc415830a6ffc8 1-128
+package.json
+  f4bc415830a6ffc8 5-6
+packages/cli/tests/integration.test.ts
+  f4bc415830a6ffc8 1-133
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "f2a2b1aa842711dba56ecaaf4b199def5c43b4cc",
+  "prompts": {
+    "f4bc415830a6ffc8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ab37ec9f-5d69-40e3-a036-aaafbfdd152e",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 988,
+      "total_deletions": 77,
+      "accepted_lines": 912,
+      "overriden_lines": 0
+    }
+  }
+}
