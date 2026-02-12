@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>deep-wiki — Query any GitHub repo's docs from the terminal</title>
+    <meta name="description" content="CLI tool to query any public GitHub repo's documentation via DeepWiki. Works with Claude Code." />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <h1>deep-wiki</h1>
+        <p class="tagline">Query any public GitHub repo's docs from the terminal.</p>
+        <div class="install-box">
+          <code id="install-cmd">npm install -g @seflless/deep-wiki</code>
+          <button class="copy-btn" onclick="copyInstall()" aria-label="Copy install command">
+            <span id="copy-icon">Copy</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="examples">
+        <h2>Usage</h2>
+        <div class="example-grid">
+          <div class="example">
+            <h3>Table of Contents</h3>
+            <pre><code>deep-wiki toc facebook/react</code></pre>
+          </div>
+          <div class="example">
+            <h3>Full Wiki</h3>
+            <pre><code>deep-wiki wiki oven-sh/bun</code></pre>
+          </div>
+          <div class="example">
+            <h3>Ask a Question</h3>
+            <pre><code>deep-wiki ask anthropics/claude-code \
+  "How does the tool system work?"</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="skill">
+        <h2>Works with Claude Code</h2>
+        <p>Install the skill and Claude can look up docs for any repo automatically.</p>
+        <div class="install-box">
+          <code>npx skills add https://github.com/seflless/deep-wiki npx --skill deep-wiki</code>
+        </div>
+      </section>
+
+      <section class="links">
+        <a href="https://github.com/seflless/deep-wiki">GitHub</a>
+        <span class="sep">&middot;</span>
+        <a href="https://www.npmjs.com/package/@seflless/deep-wiki">npm</a>
+        <span class="sep">&middot;</span>
+        <a href="https://deepwiki.com">Powered by DeepWiki</a>
+      </section>
+
+      <footer>
+        <p>MIT License &middot; Made by <a href="https://decode.sh">Decode</a></p>
+      </footer>
+    </main>
+
+    <script>
+      function copyInstall() {
+        const text = document.getElementById('install-cmd').textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const icon = document.getElementById('copy-icon');
+          icon.textContent = 'Copied!';
+          setTimeout(() => { icon.textContent = 'Copy'; }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>

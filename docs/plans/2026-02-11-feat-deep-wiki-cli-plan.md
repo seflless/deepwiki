@@ -249,10 +249,10 @@ Simple single-page site at `packages/website/`, built with Vite (vanilla TS temp
 
 ### Phase 3: Skill + Website + Docs
 
-- [ ] Claude Code skill (`skills/deep-wiki/SKILL.md`)
-- [ ] Website (static HTML/CSS)
-- [ ] README.md
-- [ ] AGENTS.md (project conventions, dev commands, architecture) + CLAUDE.md symlink
+- [x] Claude Code skill (`skills/deep-wiki/SKILL.md`)
+- [x] Website (static HTML/CSS)
+- [x] README.md
+- [x] AGENTS.md (project conventions, dev commands, architecture) + CLAUDE.md symlink
 
 ## Acceptance Criteria
 
