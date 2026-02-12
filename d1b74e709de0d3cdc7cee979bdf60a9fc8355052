@@ -1,0 +1,31 @@
+.gitignore
+  de2b946d3e700ca2 6
+packages/cli/package.json
+  de2b946d3e700ca2 10-11,15
+scripts/publish.sh
+  de2b946d3e700ca2 1-139
+package.json
+  de2b946d3e700ca2 6-9
+packages/cli/README.md
+  de2b946d3e700ca2 3,5,7,10,12-15,17,20,36,44,47-48,51,53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "d1b74e709de0d3cdc7cee979bdf60a9fc8355052",
+  "prompts": {
+    "de2b946d3e700ca2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d997c889-718a-4886-b2a7-c889fb690e79",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 164,
+      "total_deletions": 30,
+      "accepted_lines": 164,
+      "overriden_lines": 0
+    }
+  }
+}
