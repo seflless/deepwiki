@@ -7,10 +7,12 @@
     "deep-wiki": "./dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "bun run scripts/build.ts",
+    "prepublishOnly": "bun run build",
     "dev": "bun run src/index.ts"
   },
   "dependencies": {
