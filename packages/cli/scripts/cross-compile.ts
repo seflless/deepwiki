@@ -15,7 +15,7 @@ await mkdir(outDir, { recursive: true });
 for (const target of targets) {
   const platform = target.replace("bun-", "");
   const ext = platform.startsWith("windows") ? ".exe" : "";
-  const outFile = `${outDir}/deep-wiki-${platform}${ext}`;
+  const outFile = `${outDir}/deepwiki-${platform}${ext}`;
 
   console.log(`Building for ${platform}...`);
   await $`bun build src/index.ts --compile --target=${target} --outfile=${outFile}`;

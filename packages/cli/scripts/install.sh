@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="seflless/deep-wiki"
-INSTALL_DIR="${DEEP_WIKI_INSTALL_DIR:-/usr/local/bin}"
-BINARY_NAME="deep-wiki"
+REPO="seflless/deepwiki"
+INSTALL_DIR="${DEEPWIKI_INSTALL_DIR:-/usr/local/bin}"
+BINARY_NAME="deepwiki"
 
 # Colors
 RED='\033[0;31m'
@@ -11,9 +11,9 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-info()  { echo -e "${GREEN}[deep-wiki]${NC} $1"; }
-warn()  { echo -e "${YELLOW}[deep-wiki]${NC} $1"; }
-error() { echo -e "${RED}[deep-wiki]${NC} $1" >&2; exit 1; }
+info()  { echo -e "${GREEN}[deepwiki]${NC} $1"; }
+warn()  { echo -e "${YELLOW}[deepwiki]${NC} $1"; }
+error() { echo -e "${RED}[deepwiki]${NC} $1" >&2; exit 1; }
 
 # Detect platform
 detect_platform() {
@@ -42,7 +42,7 @@ get_latest_version() {
 }
 
 main() {
-  info "Installing deep-wiki..."
+  info "Installing deepwiki..."
 
   local platform
   platform=$(detect_platform)
@@ -72,7 +72,7 @@ main() {
   fi
 
   info "Installed ${BINARY_NAME} to ${INSTALL_DIR}/${BINARY_NAME}"
-  info "Run 'deep-wiki --help' to get started"
+  info "Run 'deepwiki --help' to get started"
 }
 
 main

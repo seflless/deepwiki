@@ -1,12 +1,12 @@
 ---
-name: deep-wiki
+name: deepwiki
 description: >
   Query any public GitHub repo's documentation via DeepWiki.
   Use when needing to understand a library, framework, or dependency.
-  Triggers on "look up docs", "how does X work", "deepwiki", "deep-wiki".
+  Triggers on "look up docs", "how does X work", "deepwiki", "deepwiki".
 ---
 
-# deep-wiki
+# deepwiki
 
 Query any public GitHub repo's docs from the terminal via DeepWiki. Assumes Node.js is installed.
 
@@ -14,10 +14,10 @@ Query any public GitHub repo's docs from the terminal via DeepWiki. Assumes Node
 
 | Command | Usage | Description |
 |---------|-------|-------------|
-| `toc`   | `npx @seflless/deep-wiki toc <owner/repo>` | Table of contents |
-| `wiki`  | `npx @seflless/deep-wiki wiki <owner/repo>` | Full wiki content |
-| `ask`   | `npx @seflless/deep-wiki ask <owner/repo> "<question>"` | AI-powered Q&A |
-| `ask`   | `npx @seflless/deep-wiki ask <repo1> <repo2> "<question>"` | Multi-repo Q&A (max 10) |
+| `toc`   | `npx @seflless/deepwiki toc <owner/repo>` | Table of contents |
+| `wiki`  | `npx @seflless/deepwiki wiki <owner/repo>` | Full wiki content |
+| `ask`   | `npx @seflless/deepwiki ask <owner/repo> "<question>"` | AI-powered Q&A |
+| `ask`   | `npx @seflless/deepwiki ask <repo1> <repo2> "<question>"` | Multi-repo Q&A (max 10) |
 
 ## Flags
 
@@ -31,16 +31,16 @@ Query any public GitHub repo's docs from the terminal via DeepWiki. Assumes Node
 
 ```bash
 # Understand a library's structure
-npx @seflless/deep-wiki toc facebook/react
+npx @seflless/deepwiki toc facebook/react
 
 # Get full docs for reference
-npx @seflless/deep-wiki wiki oven-sh/bun --json > bun-docs.json
+npx @seflless/deepwiki wiki oven-sh/bun --json > bun-docs.json
 
 # Ask a specific question
-npx @seflless/deep-wiki ask anthropics/claude-code "How does the tool permission system work?"
+npx @seflless/deepwiki ask anthropics/claude-code "How does the tool permission system work?"
 
 # Cross-project question
-npx @seflless/deep-wiki ask facebook/react vercel/next.js "How do server components work across these projects?"
+npx @seflless/deepwiki ask facebook/react vercel/next.js "How do server components work across these projects?"
 ```
 
 ## Tips

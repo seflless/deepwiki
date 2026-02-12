@@ -5,7 +5,7 @@ BUMP_TYPE="${1:-}"
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CLI_DIR="$REPO_ROOT/packages/cli"
 PKG="$CLI_DIR/package.json"
-REPO="seflless/deep-wiki"
+REPO="seflless/deepwiki"
 
 # --- Validate args ---
 if [[ ! "$BUMP_TYPE" =~ ^(patch|minor|major)$ ]]; then
@@ -151,6 +151,6 @@ git -C "$REPO_ROOT" push origin "$TAG"
 trap - ERR
 
 echo ""
-echo "Published @seflless/deep-wiki@$NEW_VERSION"
+echo "Published @seflless/deepwiki@$NEW_VERSION"
 echo "Tag: $TAG"
 echo "PR: $PR_URL"

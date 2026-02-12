@@ -1,4 +1,4 @@
-# deep-wiki
+# deepwiki
 
 Give your coding agent instant knowledge of any public GitHub repo.
 
@@ -7,7 +7,7 @@ Inspired by Andrej Karpathy's [post on DeepWiki](https://x.com/karpathy/status/2
 **Install the [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code)** so Claude can use [DeepWiki](https://deepwiki.com) directly on your behalf:
 
 ```bash
-npx skills add https://github.com/seflless/deep-wiki --skill deep-wiki
+npx skills add https://github.com/seflless/deepwiki --skill deepwiki
 ```
 
 **Ask anything:**
@@ -20,19 +20,19 @@ npx skills add https://github.com/seflless/deep-wiki --skill deep-wiki
 
 ## CLI
 
-There's also a CLI if you want to use deep-wiki directly.
+There's also a CLI if you want to use deepwiki directly.
 
 ```bash
-npm install -g @seflless/deep-wiki
+npm install -g @seflless/deepwiki
 ```
 
-Or use `npx @seflless/deep-wiki` without installing.
+Or use `npx @seflless/deepwiki` without installing.
 
 ```bash
-deep-wiki ask facebook/react "How does the fiber reconciler work?"
-deep-wiki wiki oven-sh/bun
-deep-wiki toc facebook/react
-deep-wiki wiki anthropics/claude-code --json > docs.json
+deepwiki ask facebook/react "How does the fiber reconciler work?"
+deepwiki wiki oven-sh/bun
+deepwiki toc facebook/react
+deepwiki wiki anthropics/claude-code --json > docs.json
 ```
 
 ### Flags
@@ -45,7 +45,7 @@ deep-wiki wiki anthropics/claude-code --json > docs.json
 
 ## How it works
 
-deep-wiki is a thin CLI wrapper around [DeepWiki's](https://deepwiki.com) MCP server. It sends JSON-RPC requests to DeepWiki's public API and formats the responses for terminal and agent consumption.
+deepwiki is a thin CLI wrapper around [DeepWiki's](https://deepwiki.com) MCP server. It sends JSON-RPC requests to DeepWiki's public API and formats the responses for terminal and agent consumption.
 
 ## License
 

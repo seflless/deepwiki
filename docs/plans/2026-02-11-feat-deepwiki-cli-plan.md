@@ -1,17 +1,17 @@
 ---
-title: "feat: deep-wiki CLI - DeepWiki wrapper for coding agents"
+title: "feat: deepwiki CLI - DeepWiki wrapper for coding agents"
 type: feat
 date: 2026-02-11
 ---
 
-# deep-wiki CLI
+# deepwiki CLI
 
 CLI wrapper around DeepWiki's MCP server. Lets agents and humans query any public GitHub repo's docs from the terminal. Ships with a Claude Code skill, a simple website, and easy install paths (npm, curl|bash, PowerShell).
 
-- **npm**: `@seflless/deep-wiki`
-- **bin**: `deep-wiki`
-- **repo**: `github.com/seflless/deep-wiki`
-- **skill install**: `npx skills add https://github.com/seflless/deep-wiki --skill deep-wiki`
+- **npm**: `@seflless/deepwiki`
+- **bin**: `deepwiki`
+- **repo**: `github.com/seflless/deepwiki`
+- **skill install**: `npx skills add https://github.com/seflless/deepwiki --skill deepwiki`
 
 ## DeepWiki MCP Server (what we're wrapping)
 
@@ -32,17 +32,17 @@ All outputs: `{ result: string }`
 ## CLI Design
 
 ```
-deep-wiki <subcommand> [options]
+deepwiki <subcommand> [options]
 ```
 
 ### Subcommands
 
 | Command | Usage | Maps to |
 |---------|-------|---------|
-| `toc` | `deep-wiki toc <owner/repo>` | `read_wiki_structure` |
-| `wiki` | `deep-wiki wiki <owner/repo>` | `read_wiki_contents` |
-| `ask` | `deep-wiki ask <owner/repo> "<question>"` | `ask_question` |
-| `ask` | `deep-wiki ask <repo1> <repo2> ... "<question>"` | `ask_question` (multi-repo, max 10) |
+| `toc` | `deepwiki toc <owner/repo>` | `read_wiki_structure` |
+| `wiki` | `deepwiki wiki <owner/repo>` | `read_wiki_contents` |
+| `ask` | `deepwiki ask <owner/repo> "<question>"` | `ask_question` |
+| `ask` | `deepwiki ask <repo1> <repo2> ... "<question>"` | `ask_question` (multi-repo, max 10) |
 
 ### Global Flags
 
@@ -72,39 +72,39 @@ deep-wiki <subcommand> [options]
 
 ```bash
 # Table of contents for a repo
-deep-wiki toc facebook/react
+deepwiki toc facebook/react
 
 # Full wiki
-deep-wiki wiki facebook/react
+deepwiki wiki facebook/react
 
 # Ask a question
-deep-wiki ask facebook/react "How does the fiber reconciler work?"
+deepwiki ask facebook/react "How does the fiber reconciler work?"
 
 # Ask across multiple repos
-deep-wiki ask facebook/react vercel/next.js "How do server components work?"
+deepwiki ask facebook/react vercel/next.js "How do server components work?"
 
 # Pipe to a file
-deep-wiki wiki anthropics/claude-code --json > claude-code-docs.json
+deepwiki wiki anthropics/claude-code --json > claude-code-docs.json
 
 # Use in a script
-ANSWER=$(deep-wiki ask oven-sh/bun "What bundler formats are supported?")
+ANSWER=$(deepwiki ask oven-sh/bun "What bundler formats are supported?")
 ```
 
 ## Monorepo Structure
 
 ```
-deep-wiki/
+deepwiki/
   package.json              # private, workspaces: ["packages/*"]
   bunfig.toml
   bun.lockb
   LICENSE                   # MIT
   README.md
   skills/
-    deep-wiki/
+    deepwiki/
       SKILL.md              # Claude Code skill
   packages/
     cli/
-      package.json          # name: "@seflless/deep-wiki", bin: { "deep-wiki": "./dist/index.js" }
+      package.json          # name: "@seflless/deepwiki", bin: { "deepwiki": "./dist/index.js" }
       tsconfig.json
       src/
         index.ts            # Entry point (shebang)
@@ -120,7 +120,7 @@ deep-wiki/
         install.sh          # curl|bash installer
         install.ps1         # PowerShell installer
     website/
-      package.json          # name: "@deep-wiki/website"
+      package.json          # name: "@deepwiki/website"
       src/
         index.html          # Simple landing page
         style.css
@@ -146,13 +146,13 @@ deep-wiki/
 
 ```bash
 # Install globally
-npm install -g @seflless/deep-wiki
+npm install -g @seflless/deepwiki
 
 # Or run directly
-npx @seflless/deep-wiki ask facebook/react "What is JSX?"
+npx @seflless/deepwiki ask facebook/react "What is JSX?"
 
 # After global install
-deep-wiki ask facebook/react "What is JSX?"
+deepwiki ask facebook/react "What is JSX?"
 ```
 
 - Ship bundled JS (single file via `bun build`)
@@ -163,7 +163,7 @@ deep-wiki ask facebook/react "What is JSX?"
 ### Secondary: curl|bash
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/seflless/deep-wiki/main/packages/cli/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/seflless/deepwiki/main/packages/cli/scripts/install.sh | bash
 ```
 
 - Compiles per-platform binaries with `bun build --compile`
@@ -178,31 +178,31 @@ curl -fsSL https://raw.githubusercontent.com/seflless/deep-wiki/main/packages/cl
 
 ## Claude Code Skill
 
-Located at `skills/deep-wiki/SKILL.md` in repo root.
+Located at `skills/deepwiki/SKILL.md` in repo root.
 
-Install: `npx skills add https://github.com/seflless/deep-wiki --skill deep-wiki`
+Install: `npx skills add https://github.com/seflless/deepwiki --skill deepwiki`
 
 ### Skill Design
 
 ```yaml
 ---
-name: deep-wiki
+name: deepwiki
 description: >
   Query any public GitHub repo's documentation via DeepWiki.
   Use when needing to understand a library, framework, or dependency.
-  Triggers on "look up docs", "how does X work", "deepwiki", "deep-wiki".
+  Triggers on "look up docs", "how does X work", "deepwiki", "deepwiki".
 ---
 ```
 
 **Key skill behaviors:**
-- Uses `npx @seflless/deep-wiki` pattern (no global install, assumes Node.js)
+- Uses `npx @seflless/deepwiki` pattern (no global install, assumes Node.js)
 - Teaches agent the 3 subcommands with compact examples
 - Uses `--json` flag when agent needs structured data
 - Minimal tokens: table-based flag reference, no prose explanations
 
 ## Website
 
-Domain: `deep-wiki.sh` — hosted on Vercel.
+Domain: `deepwiki.sh` — hosted on Vercel.
 Simple single-page site at `packages/website/`, built with Vite (vanilla TS template, no React).
 
 - Hero: name, one-liner, install command (copy button)
@@ -228,7 +228,7 @@ Simple single-page site at `packages/website/`, built with Vite (vanilla TS temp
 
 ### Phase 2: Distribution
 
-- [x] npm publish config (name: @seflless/deep-wiki, bin, files, access)
+- [x] npm publish config (name: @seflless/deepwiki, bin, files, access)
 - [x] `install.sh` script for curl|bash
 - [x] `install.ps1` for PowerShell
 - [x] Cross-compile script (all 5 targets)
@@ -257,17 +257,17 @@ Unit tests using `bun test`. Mock the MCP server (no live network calls in tests
 
 ### Phase 3: Skill + Website + Docs
 
-- [x] Claude Code skill (`skills/deep-wiki/SKILL.md`)
+- [x] Claude Code skill (`skills/deepwiki/SKILL.md`)
 - [x] Website (static HTML/CSS)
 - [x] README.md
 - [x] AGENTS.md (project conventions, dev commands, architecture) + CLAUDE.md symlink
 
 ## Acceptance Criteria
 
-- [ ] `npx @seflless/deep-wiki toc facebook/react` returns a table of contents
-- [ ] `npx @seflless/deep-wiki wiki facebook/react` returns full docs
-- [ ] `npx @seflless/deep-wiki ask facebook/react "What is JSX?"` returns an answer
-- [ ] `npx @seflless/deep-wiki ask repo1 repo2 "question"` works for multi-repo
+- [ ] `npx @seflless/deepwiki toc facebook/react` returns a table of contents
+- [ ] `npx @seflless/deepwiki wiki facebook/react` returns full docs
+- [ ] `npx @seflless/deepwiki ask facebook/react "What is JSX?"` returns an answer
+- [ ] `npx @seflless/deepwiki ask repo1 repo2 "question"` works for multi-repo
 - [ ] `--json` outputs raw server response
 - [ ] `--help` shows usage for every command
 - [ ] Works on macOS, Linux, Windows via npm

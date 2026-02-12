@@ -17,7 +17,7 @@ function getGlobalOpts(cmd: Command) {
 
 export function createProgram(): Command {
   const program = new Command()
-    .name("deep-wiki")
+    .name("deepwiki")
     .description(
       "Query any public GitHub repo's docs via DeepWiki",
     )
@@ -51,7 +51,7 @@ export function createProgram(): Command {
     .action(async (args: string[], _opts: unknown, cmd: Command) => {
       if (args.length < 2) {
         throw new UsageError(
-          'Usage: deep-wiki ask <owner/repo> [more repos...] "<question>"',
+          'Usage: deepwiki ask <owner/repo> [more repos...] "<question>"',
         );
       }
 
