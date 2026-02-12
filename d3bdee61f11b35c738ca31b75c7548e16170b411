@@ -1,0 +1,29 @@
+packages/cli/src/cli.ts
+  f76eb1e10496b982 75-76,78
+packages/cli/tests/cli.test.ts
+  f76eb1e10496b982 52-93
+packages/cli/src/client.ts
+  f76eb1e10496b982 41,43-45,57-62,68-74,76-78,93,95-97
+packages/cli/tests/client.test.ts
+  f76eb1e10496b982 255-334
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "d3bdee61f11b35c738ca31b75c7548e16170b411",
+  "prompts": {
+    "f76eb1e10496b982": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2ec43d86-f6f6-4b1c-95ed-ee7b7c5935fc",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 157,
+      "total_deletions": 11,
+      "accepted_lines": 149,
+      "overriden_lines": 0
+    }
+  }
+}
