@@ -1,6 +1,6 @@
 {
   "name": "@seflless/deep-wiki",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "CLI wrapper around DeepWiki — query any public GitHub repo's docs from the terminal",
   "type": "module",
   "bin": {
