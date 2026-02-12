@@ -1,0 +1,29 @@
+docs/plans/2026-02-11-feat-deep-wiki-cli-plan.md
+  0b15ce67fe7d0afc 239-242
+packages/cli/scripts/install.ps1
+  0b15ce67fe7d0afc 1-42
+packages/cli/scripts/install.sh
+  0b15ce67fe7d0afc 1-78
+packages/cli/scripts/cross-compile.ts
+  0b15ce67fe7d0afc 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "0920504e20b4e5967d64ba2361778c186ace1714",
+  "prompts": {
+    "0b15ce67fe7d0afc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "82fcac95-35bf-4eda-bc58-da1d50e16ee8",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 148,
+      "total_deletions": 4,
+      "accepted_lines": 148,
+      "overriden_lines": 0
+    }
+  }
+}
