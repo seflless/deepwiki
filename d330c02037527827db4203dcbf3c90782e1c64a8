@@ -1,0 +1,47 @@
+scripts/publish.sh
+  9f223eb753768041 8,154
+skills/deepwiki/SKILL.md
+  9f223eb753768041 2,6,9,17-20,34,37,40,43
+package.json
+  9f223eb753768041 5
+packages/cli/package.json
+  9f223eb753768041 2,7,29
+packages/website/package.json
+  9f223eb753768041 2
+packages/cli/tests/integration.test.ts
+  9f223eb753768041 40,50,63,81,99,116,128
+packages/cli/tests/cli.test.ts
+  9f223eb753768041 17,19,37,50,58,70,82,92,102,117,135,149,168,175,187,202
+packages/cli/src/cli.ts
+  9f223eb753768041 20,54
+packages/cli/scripts/install.ps1
+  9f223eb753768041 3-5,7-8,10,42
+README.md
+  9f223eb753768041 1,10,23,26,29,32-35,48
+packages/cli/scripts/install.sh
+  9f223eb753768041 4-6,14-16,45,75
+packages/cli/scripts/cross-compile.ts
+  9f223eb753768041 18
+packages/website/index.html
+  9f223eb753768041 6,14,21,34,40,61,107-108,234,238,263,273,276,300,303,327,330,354,357,399,407,409
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "d330c02037527827db4203dcbf3c90782e1c64a8",
+  "prompts": {
+    "9f223eb753768041": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ae45f8fc-5a3d-4f46-9b09-6d4338ab8c59",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 129,
+      "total_deletions": 129,
+      "accepted_lines": 128,
+      "overriden_lines": 0
+    }
+  }
+}
