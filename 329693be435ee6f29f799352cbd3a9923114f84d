@@ -1,0 +1,27 @@
+packages/website/src/style.css
+  3058dae6bb08091b 28-50,66-77,81-85,96-97,110-116,119-129,134-142,145-146,149-151,154-157,159,189,195,198-217,220-229,232,236,241-246,251-272,274-300,305,321-324,327-330,333-336,339-342,346-348,350-356,360,363-365,373-379,382-389,392,396,403,437-439,448,485-496
+packages/website/index.html
+  3058dae6bb08091b 6,8-21,27-38,40-46,50-52,55-77,79-80,88-89,92-94,98,103-111,113-120,122-129,131-138,153,160,166-167,172,175-180,182-218
+README.md
+  3058dae6bb08091b 5,7,13,15,17,19,21-23,29,32-34,46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.1",
+  "base_commit_sha": "329693be435ee6f29f799352cbd3a9923114f84d",
+  "prompts": {
+    "3058dae6bb08091b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1b6cbf68-ef0f-41a7-bfc5-a3db84bc0088",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 828,
+      "total_deletions": 477,
+      "accepted_lines": 396,
+      "overriden_lines": 0
+    }
+  }
+}
