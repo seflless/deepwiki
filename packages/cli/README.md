@@ -12,9 +12,21 @@ npx skills add https://github.com/seflless/deep-wiki npx --skill deep-wiki
 
 That's it. Claude Code will now use deep-wiki automatically when it needs to understand an unfamiliar codebase.
 
-## CLI Usage
+## Install the CLI
 
-deep-wiki also works as a standalone CLI — useful for piping repo knowledge into any agent or workflow.
+No install needed — just use `npx`:
+
+```bash
+npx @seflless/deep-wiki toc facebook/react
+```
+
+Or install globally:
+
+```bash
+npm install -g @seflless/deep-wiki
+```
+
+## Usage
 
 ```bash
 # Table of contents for a repo
@@ -40,13 +52,6 @@ npx @seflless/deep-wiki wiki anthropics/claude-code --json > docs.json
 | `--json` | Output raw JSON |
 | `-q, --quiet` | Suppress spinners |
 | `--no-color` | Disable colors |
-
-### Global Install (optional)
-
-```bash
-npm install -g @seflless/deep-wiki
-deep-wiki toc facebook/react
-```
 
 ## How It Works
 
