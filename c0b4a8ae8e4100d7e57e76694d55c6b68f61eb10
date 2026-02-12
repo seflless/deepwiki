@@ -1,0 +1,61 @@
+packages/cli/README.md
+  de2b946d3e700ca2 3,5,7,10,12-15,17,20,36,44,47-48,51,53
+package.json
+  f4bc415830a6ffc8 5
+  de2b946d3e700ca2 6-9
+  0b15ce67fe7d0afc 1-4,10-11
+.gitignore
+  0b15ce67fe7d0afc 1-5
+  de2b946d3e700ca2 6
+packages/cli/package.json
+  de2b946d3e700ca2 10-11,15
+  0b15ce67fe7d0afc 1-9,12-14,16-42
+scripts/publish.sh
+  de2b946d3e700ca2 1-139
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "c0b4a8ae8e4100d7e57e76694d55c6b68f61eb10",
+  "prompts": {
+    "0b15ce67fe7d0afc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "82fcac95-35bf-4eda-bc58-da1d50e16ee8",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 1081,
+      "total_deletions": 84,
+      "accepted_lines": 50,
+      "overriden_lines": 0
+    },
+    "de2b946d3e700ca2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d997c889-718a-4886-b2a7-c889fb690e79",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 164,
+      "total_deletions": 30,
+      "accepted_lines": 163,
+      "overriden_lines": 0
+    },
+    "f4bc415830a6ffc8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ab37ec9f-5d69-40e3-a036-aaafbfdd152e",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 1063,
+      "total_deletions": 90,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
