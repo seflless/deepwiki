@@ -1,0 +1,23 @@
+packages/cli/README.md
+  de2b946d3e700ca2 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "70cad3eeb83534d765c5fa924b2ea2c530ddd069",
+  "prompts": {
+    "de2b946d3e700ca2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d997c889-718a-4886-b2a7-c889fb690e79",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
