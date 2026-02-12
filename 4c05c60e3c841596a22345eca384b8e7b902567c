@@ -1,0 +1,23 @@
+conductor.json
+  4d3deed1541e706d 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.1",
+  "base_commit_sha": "4c05c60e3c841596a22345eca384b8e7b902567c",
+  "prompts": {
+    "4d3deed1541e706d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f9a1a618-9d4e-43f8-8fb6-dcaf77abe566",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 7,
+      "total_deletions": 1,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}
