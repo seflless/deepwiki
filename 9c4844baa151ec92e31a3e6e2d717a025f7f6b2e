@@ -1,0 +1,27 @@
+packages/cli/.gitignore
+  a5f46ee37c081bdb 1
+packages/cli/scripts/build.ts
+  a5f46ee37c081bdb 14-16
+packages/cli/package.json
+  a5f46ee37c081bdb 3,39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "9c4844baa151ec92e31a3e6e2d717a025f7f6b2e",
+  "prompts": {
+    "a5f46ee37c081bdb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "040a7f24-ca19-4d4b-b28d-94e6aec17260",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 1,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}
