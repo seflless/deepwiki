@@ -5,28 +5,21 @@ CLI wrapper around DeepWiki's MCP server. Monorepo with Bun workspaces.
 ## Structure
 
 ```
-packages/cli/     # @seflless/deep-wiki — the CLI (TypeScript, Bun)
-packages/website/ # Landing page (Vite, vanilla TS)
-skills/deep-wiki/ # Claude Code skill
+packages/cli/       # @seflless/deep-wiki — the CLI (TypeScript, Bun)
+packages/website/   # Landing page (Vite, vanilla TS)
+skills/deep-wiki/   # Claude Code skill
+docs/plans/         # Feature plans
 ```
 
 ## Dev Commands
 
 ```bash
-# Install deps
-bun install
-
-# Run CLI in dev mode
-bun run packages/cli/src/index.ts toc facebook/react
-
-# Build CLI (single JS bundle)
-bun run --cwd packages/cli build
-
-# Cross-compile binaries (all platforms)
-bun run packages/cli/scripts/cross-compile.ts
-
-# Dev server for website
-bun run --cwd packages/website dev
+bun install                          # Install deps
+bun deep-wiki toc facebook/react     # Run CLI from source (no build needed)
+bun deep-wiki ask oven-sh/bun "Q?"   # All CLI args work after `bun deep-wiki`
+bun run --cwd packages/cli build     # Build single JS bundle to dist/
+bun test                             # Run all tests
+bun run --cwd packages/website dev   # Website dev server
 ```
 
 ## Architecture
@@ -34,20 +27,21 @@ bun run --cwd packages/website dev
 - **MCP client** (`packages/cli/src/client.ts`): POST JSON-RPC 2.0 to `https://mcp.deepwiki.com/mcp`, parse SSE responses
 - **Commands** (`packages/cli/src/commands/`): `toc.ts`, `wiki.ts`, `ask.ts` — each calls client + formats output
 - **CLI** (`packages/cli/src/cli.ts`): Commander.js routing, global flags, error handling
-- **Build**: `bun build` bundles to single `dist/index.js` with shebang
+- **Entry** (`packages/cli/src/index.ts`): shebang + run
+- **Build**: `bun build` bundles to single `dist/index.js` with `#!/usr/bin/env node` shebang
 
 ## Conventions
 
-- TypeScript strict mode
-- ESM throughout (`"type": "module"`)
-- chalk for colors, ora for spinners
-- Errors go to stderr, content to stdout
+- TypeScript strict mode, ESM throughout
+- chalk for colors, ora for spinners (stderr only)
+- Content to stdout, errors/spinners to stderr
 - Exit code 1 = server/network error, 2 = usage error
 - Commander.js for CLI framework
-- No tests yet (live MCP server dependency)
+- `bun test` for testing, mock fetch (no live network calls in tests)
+- `npx @seflless/deep-wiki` is the primary user-facing invocation pattern
 
 ## npm Package
 
 - Scoped: `@seflless/deep-wiki`
 - Binary: `deep-wiki`
-- Public access
+- Public access, MIT license

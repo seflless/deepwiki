@@ -195,18 +195,10 @@ description: >
 ```
 
 **Key skill behaviors:**
-- Auto-checks if deep-wiki is installed, installs via npm if not
+- Uses `npx @seflless/deep-wiki` pattern (no global install, assumes Node.js)
 - Teaches agent the 3 subcommands with compact examples
 - Uses `--json` flag when agent needs structured data
 - Minimal tokens: table-based flag reference, no prose explanations
-
-### Skill Content Outline
-
-1. Setup check (`command -v deep-wiki`)
-2. Install if missing (`npm install -g @seflless/deep-wiki`)
-3. Subcommand reference table
-4. 3-4 example invocations
-5. Tips: use `--json` for piping, multi-repo ask for cross-project questions
 
 ## Website
 
@@ -241,11 +233,27 @@ Simple single-page site at `packages/website/`, built with Vite (vanilla TS temp
 - [x] `install.ps1` for PowerShell
 - [x] Cross-compile script (all 5 targets)
 
-### Phase 2b: CI (later)
+### Phase 4: Tests
 
-- [ ] GitHub Actions: test on PR
+Unit tests using `bun test`. Mock the MCP server (no live network calls in tests).
+
+- [ ] Test harness setup (`packages/cli/tests/`, bun test config)
+- [ ] `client.ts` tests — mock fetch, verify JSON-RPC request format, SSE parsing, error handling
+- [ ] `cli.ts` tests — arg parsing, repo validation, exit codes, --help/--version
+- [ ] `commands/toc.ts` tests — calls client correctly, formats output, respects --json
+- [ ] `commands/wiki.ts` tests — same as toc
+- [ ] `commands/ask.ts` tests — single repo, multi-repo (up to 10), question as last arg, errors
+- [ ] `format.ts` tests — human vs JSON output
+- [ ] `errors.ts` tests — correct exit codes per error type
+- [ ] Integration test — full CLI run with mocked server, verify stdout/stderr/exit code
+
+### Phase 5: CI (blocks merge to main)
+
+- [ ] GitHub Actions: `bun test` on every PR (required status check)
+- [ ] GitHub Actions: `bun run build` on every PR (verify build doesn't break)
 - [ ] GitHub Actions: build + publish to npm on tag/release
 - [ ] GitHub Actions: cross-compile binaries + attach to GitHub Release
+- [ ] Branch protection: require CI pass before merge to main
 
 ### Phase 3: Skill + Website + Docs
 
@@ -263,7 +271,7 @@ Simple single-page site at `packages/website/`, built with Vite (vanilla TS temp
 - [ ] `--json` outputs raw server response
 - [ ] `--help` shows usage for every command
 - [ ] Works on macOS, Linux, Windows via npm
-- [ ] Claude Code skill auto-installs and teaches usage
+- [ ] Claude Code skill teaches usage via npx pattern
 - [ ] Website shows install instructions and examples
 - [ ] MIT licensed
 

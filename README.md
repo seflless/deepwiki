@@ -2,32 +2,44 @@
 
 Query any public GitHub repo's docs from the terminal. Powered by [DeepWiki](https://deepwiki.com).
 
-## Install
+## Quick Start
+
+No install needed — just use `npx`:
 
 ```bash
-npm install -g @seflless/deep-wiki
-```
-
-Or with curl:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/seflless/deep-wiki/main/packages/cli/scripts/install.sh | bash
+npx @seflless/deep-wiki toc facebook/react
 ```
 
 ## Usage
 
 ```bash
 # Table of contents
-deep-wiki toc facebook/react
+npx @seflless/deep-wiki toc facebook/react
 
 # Full wiki
-deep-wiki wiki facebook/react
+npx @seflless/deep-wiki wiki oven-sh/bun
 
 # Ask a question
-deep-wiki ask facebook/react "How does the fiber reconciler work?"
+npx @seflless/deep-wiki ask facebook/react "How does the fiber reconciler work?"
 
-# Ask across multiple repos
-deep-wiki ask facebook/react vercel/next.js "How do server components work?"
+# Ask across multiple repos (max 10)
+npx @seflless/deep-wiki ask facebook/react vercel/next.js "How do server components work?"
+
+# Pipe JSON to a file
+npx @seflless/deep-wiki wiki anthropics/claude-code --json > docs.json
+```
+
+## Install Globally (optional)
+
+```bash
+npm install -g @seflless/deep-wiki
+deep-wiki toc facebook/react
+```
+
+Or via curl:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/seflless/deep-wiki/main/packages/cli/scripts/install.sh | bash
 ```
 
 ## Flags

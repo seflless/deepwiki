@@ -8,23 +8,16 @@ description: >
 
 # deep-wiki
 
-Query any public GitHub repo's docs from the terminal via DeepWiki.
-
-## Setup
-
-```bash
-# Check if installed
-command -v deep-wiki >/dev/null 2>&1 || npm install -g @seflless/deep-wiki
-```
+Query any public GitHub repo's docs from the terminal via DeepWiki. Assumes Node.js is installed.
 
 ## Commands
 
 | Command | Usage | Description |
 |---------|-------|-------------|
-| `toc`   | `deep-wiki toc <owner/repo>` | Table of contents |
-| `wiki`  | `deep-wiki wiki <owner/repo>` | Full wiki content |
-| `ask`   | `deep-wiki ask <owner/repo> "<question>"` | AI-powered Q&A |
-| `ask`   | `deep-wiki ask <repo1> <repo2> "<question>"` | Multi-repo Q&A (max 10) |
+| `toc`   | `npx @seflless/deep-wiki toc <owner/repo>` | Table of contents |
+| `wiki`  | `npx @seflless/deep-wiki wiki <owner/repo>` | Full wiki content |
+| `ask`   | `npx @seflless/deep-wiki ask <owner/repo> "<question>"` | AI-powered Q&A |
+| `ask`   | `npx @seflless/deep-wiki ask <repo1> <repo2> "<question>"` | Multi-repo Q&A (max 10) |
 
 ## Flags
 
@@ -38,16 +31,16 @@ command -v deep-wiki >/dev/null 2>&1 || npm install -g @seflless/deep-wiki
 
 ```bash
 # Understand a library's structure
-deep-wiki toc facebook/react
+npx @seflless/deep-wiki toc facebook/react
 
 # Get full docs for reference
-deep-wiki wiki oven-sh/bun --json > bun-docs.json
+npx @seflless/deep-wiki wiki oven-sh/bun --json > bun-docs.json
 
 # Ask a specific question
-deep-wiki ask anthropics/claude-code "How does the tool permission system work?"
+npx @seflless/deep-wiki ask anthropics/claude-code "How does the tool permission system work?"
 
 # Cross-project question
-deep-wiki ask facebook/react vercel/next.js "How do server components work across these projects?"
+npx @seflless/deep-wiki ask facebook/react vercel/next.js "How do server components work across these projects?"
 ```
 
 ## Tips
