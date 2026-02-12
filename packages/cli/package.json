@@ -1,0 +1,40 @@
+{
+  "name": "@seflless/deep-wiki",
+  "version": "0.1.0",
+  "description": "CLI wrapper around DeepWiki — query any public GitHub repo's docs from the terminal",
+  "type": "module",
+  "bin": {
+    "deep-wiki": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "dev": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "ora": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.4"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seflless/deep-wiki"
+  },
+  "keywords": [
+    "deepwiki",
+    "wiki",
+    "documentation",
+    "github",
+    "cli",
+    "mcp"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,184 @@
+:root {
+  --bg: #0a0a0a;
+  --fg: #e5e5e5;
+  --muted: #888;
+  --accent: #3b82f6;
+  --code-bg: #1a1a2e;
+  --border: #333;
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+/* Install box */
+.install-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.9rem;
+}
+
+.copy-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: inherit;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.copy-btn:hover {
+  color: var(--fg);
+  border-color: var(--fg);
+}
+
+/* Examples */
+.examples {
+  margin-bottom: 80px;
+}
+
+.examples h2 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.example-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.example {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.example h3 {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.example pre {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.9rem;
+  overflow-x: auto;
+}
+
+/* Skill section */
+.skill {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.skill h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.skill p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.skill .install-box {
+  font-size: 0.8rem;
+}
+
+/* Links */
+.links {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.links a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.sep {
+  color: var(--muted);
+  margin: 0 8px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  main {
+    padding: 40px 16px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .install-box {
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
