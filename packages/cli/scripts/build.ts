@@ -11,4 +11,7 @@ if (!content.startsWith("#!")) {
 // Make executable
 await $`chmod +x dist/index.js`;
 
+// Copy root README into package for npm publish
+await $`cp ../../README.md README.md`;
+
 console.log("Built dist/index.js");
