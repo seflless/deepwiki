@@ -1,0 +1,27 @@
+docs/plans/2026-02-11-feat-deep-wiki-cli-plan.md
+  f5c369409e842175 14,183
+README.md
+  f5c369409e842175 10
+packages/website/index.html
+  f5c369409e842175 107
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "96b9b27f8102f52288d1066db97acf33473f8680",
+  "prompts": {
+    "f5c369409e842175": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2746608a-0772-4c79-97cf-43b2a1992151",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 4,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    }
+  }
+}
