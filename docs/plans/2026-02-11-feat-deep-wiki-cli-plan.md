@@ -237,22 +237,22 @@ Simple single-page site at `packages/website/`, built with Vite (vanilla TS temp
 
 Unit tests using `bun test`. Mock the MCP server (no live network calls in tests).
 
-- [ ] Test harness setup (`packages/cli/tests/`, bun test config)
-- [ ] `client.ts` tests — mock fetch, verify JSON-RPC request format, SSE parsing, error handling
-- [ ] `cli.ts` tests — arg parsing, repo validation, exit codes, --help/--version
-- [ ] `commands/toc.ts` tests — calls client correctly, formats output, respects --json
-- [ ] `commands/wiki.ts` tests — same as toc
-- [ ] `commands/ask.ts` tests — single repo, multi-repo (up to 10), question as last arg, errors
-- [ ] `format.ts` tests — human vs JSON output
-- [ ] `errors.ts` tests — correct exit codes per error type
-- [ ] Integration test — full CLI run with mocked server, verify stdout/stderr/exit code
+- [x] Test harness setup (`packages/cli/tests/`, bun test config)
+- [x] `client.ts` tests — mock fetch, verify JSON-RPC request format, SSE parsing, error handling
+- [x] `cli.ts` tests — arg parsing, repo validation, exit codes, --help/--version
+- [x] `commands/toc.ts` tests — calls client correctly, formats output, respects --json
+- [x] `commands/wiki.ts` tests — same as toc
+- [x] `commands/ask.ts` tests — single repo, multi-repo (up to 10), question as last arg, errors
+- [x] `format.ts` tests — human vs JSON output
+- [x] `errors.ts` tests — correct exit codes per error type
+- [x] Integration test — full CLI run with mocked server, verify stdout/stderr/exit code
 
 ### Phase 5: CI (blocks merge to main)
 
-- [ ] GitHub Actions: `bun test` on every PR (required status check)
-- [ ] GitHub Actions: `bun run build` on every PR (verify build doesn't break)
-- [ ] GitHub Actions: build + publish to npm on tag/release
-- [ ] GitHub Actions: cross-compile binaries + attach to GitHub Release
+- [x] GitHub Actions: `bun test` on every PR (required status check)
+- [x] GitHub Actions: `bun run build` on every PR (verify build doesn't break)
+- [x] GitHub Actions: build + publish to npm on tag/release
+- [x] GitHub Actions: cross-compile binaries + attach to GitHub Release
 - [ ] Branch protection: require CI pass before merge to main
 
 ### Phase 3: Skill + Website + Docs
