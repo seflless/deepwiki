@@ -1,0 +1,23 @@
+scripts/publish.sh
+  de2b946d3e700ca2 8,54,56,60-67,70,72-73,78,114,119,126-128,130,132-135,137,139-141,147
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "5c9f02a4e27acfbd4d9e51ec6aba4daeaeba99c0",
+  "prompts": {
+    "de2b946d3e700ca2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d997c889-718a-4886-b2a7-c889fb690e79",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 31,
+      "total_deletions": 17,
+      "accepted_lines": 31,
+      "overriden_lines": 0
+    }
+  }
+}
