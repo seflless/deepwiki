@@ -37,7 +37,7 @@ describe("integration: full CLI flow", () => {
   test("toc command outputs wiki structure", async () => {
     const program = createProgram();
     program.exitOverride();
-    await program.parseAsync(["node", "deep-wiki", "toc", "facebook/react"]);
+    await program.parseAsync(["node", "deepwiki", "toc", "facebook/react"]);
 
     expect(mockReadWikiStructure).toHaveBeenCalledWith("facebook/react");
     expect(logSpy).toHaveBeenCalled();
@@ -47,7 +47,7 @@ describe("integration: full CLI flow", () => {
   test("wiki command with --json outputs JSON", async () => {
     const program = createProgram();
     program.exitOverride();
-    await program.parseAsync(["node", "deep-wiki", "--json", "wiki", "owner/repo"]);
+    await program.parseAsync(["node", "deepwiki", "--json", "wiki", "owner/repo"]);
 
     expect(mockReadWikiContents).toHaveBeenCalledWith("owner/repo");
     const output = logSpy.mock.calls[0][0];
@@ -60,7 +60,7 @@ describe("integration: full CLI flow", () => {
     program.exitOverride();
     await program.parseAsync([
       "node",
-      "deep-wiki",
+      "deepwiki",
       "ask",
       "facebook/react",
       "How does reconciliation work?",
@@ -78,7 +78,7 @@ describe("integration: full CLI flow", () => {
     program.exitOverride();
     await program.parseAsync([
       "node",
-      "deep-wiki",
+      "deepwiki",
       "ask",
       "facebook/react",
       "vercel/next.js",
@@ -96,7 +96,7 @@ describe("integration: full CLI flow", () => {
     program.exitOverride();
 
     try {
-      await program.parseAsync(["node", "deep-wiki", "toc", "noslash"]);
+      await program.parseAsync(["node", "deepwiki", "toc", "noslash"]);
       expect(true).toBe(false);
     } catch (err) {
       expect(err).toBeInstanceOf(UsageError);
@@ -113,7 +113,7 @@ describe("integration: full CLI flow", () => {
     program.exitOverride();
 
     try {
-      await program.parseAsync(["node", "deep-wiki", "toc", "owner/repo"]);
+      await program.parseAsync(["node", "deepwiki", "toc", "owner/repo"]);
       expect(true).toBe(false);
     } catch (err) {
       expect(err).toBeInstanceOf(ServerError);
@@ -125,7 +125,7 @@ describe("integration: full CLI flow", () => {
   test("--quiet flag is passed through", async () => {
     const program = createProgram();
     program.exitOverride();
-    await program.parseAsync(["node", "deep-wiki", "--quiet", "toc", "a/b"]);
+    await program.parseAsync(["node", "deepwiki", "--quiet", "toc", "a/b"]);
 
     // The command should still work (quiet just suppresses spinner)
     expect(mockReadWikiStructure).toHaveBeenCalledWith("a/b");

@@ -14,9 +14,9 @@ mock.module("../src/commands/ask.js", () => ({
 }));
 
 describe("createProgram", () => {
-  test("program name is deep-wiki", () => {
+  test("program name is deepwiki", () => {
     const program = createProgram();
-    expect(program.name()).toBe("deep-wiki");
+    expect(program.name()).toBe("deepwiki");
   });
 
   test("has toc, wiki, ask subcommands", () => {
@@ -34,7 +34,7 @@ describe("repo validation", () => {
     program.exitOverride();
 
     try {
-      await program.parseAsync(["node", "deep-wiki", "toc", "noslash"]);
+      await program.parseAsync(["node", "deepwiki", "toc", "noslash"]);
       expect(true).toBe(false);
     } catch (err) {
       expect(err).toBeInstanceOf(UsageError);
@@ -47,7 +47,7 @@ describe("repo validation", () => {
     program.exitOverride();
 
     // This should not throw (command handler is mocked)
-    await program.parseAsync(["node", "deep-wiki", "toc", "facebook/react"]);
+    await program.parseAsync(["node", "deepwiki", "toc", "facebook/react"]);
   });
 
   test("rejects repo with empty owner", async () => {
@@ -55,7 +55,7 @@ describe("repo validation", () => {
     program.exitOverride();
 
     try {
-      await program.parseAsync(["node", "deep-wiki", "toc", "/repo"]);
+      await program.parseAsync(["node", "deepwiki", "toc", "/repo"]);
       expect(true).toBe(false);
     } catch (err) {
       expect(err).toBeInstanceOf(UsageError);
@@ -67,7 +67,7 @@ describe("repo validation", () => {
     program.exitOverride();
 
     try {
-      await program.parseAsync(["node", "deep-wiki", "toc", "owner/"]);
+      await program.parseAsync(["node", "deepwiki", "toc", "owner/"]);
       expect(true).toBe(false);
     } catch (err) {
       expect(err).toBeInstanceOf(UsageError);
@@ -79,7 +79,7 @@ describe("repo validation", () => {
     program.exitOverride();
 
     try {
-      await program.parseAsync(["node", "deep-wiki", "toc", "a/b/c"]);
+      await program.parseAsync(["node", "deepwiki", "toc", "a/b/c"]);
       expect(true).toBe(false);
     } catch (err) {
       expect(err).toBeInstanceOf(UsageError);
@@ -89,7 +89,7 @@ describe("repo validation", () => {
   test("accepts repo with dots, hyphens, underscores", async () => {
     const program = createProgram();
     program.exitOverride();
-    await program.parseAsync(["node", "deep-wiki", "toc", "my-org/my_repo.js"]);
+    await program.parseAsync(["node", "deepwiki", "toc", "my-org/my_repo.js"]);
   });
 });
 
@@ -99,7 +99,7 @@ describe("ask command validation", () => {
     program.exitOverride();
 
     try {
-      await program.parseAsync(["node", "deep-wiki", "ask", "facebook/react"]);
+      await program.parseAsync(["node", "deepwiki", "ask", "facebook/react"]);
       expect(true).toBe(false);
     } catch (err) {
       expect(err).toBeInstanceOf(UsageError);
@@ -114,7 +114,7 @@ describe("ask command validation", () => {
     try {
       await program.parseAsync([
         "node",
-        "deep-wiki",
+        "deepwiki",
         "ask",
         ...repos,
         "question?",
@@ -132,7 +132,7 @@ describe("ask command validation", () => {
 
     await program.parseAsync([
       "node",
-      "deep-wiki",
+      "deepwiki",
       "ask",
       "facebook/react",
       "What is JSX?",
@@ -146,7 +146,7 @@ describe("ask command validation", () => {
     try {
       await program.parseAsync([
         "node",
-        "deep-wiki",
+        "deepwiki",
         "ask",
         "facebook/react",
         "noslash",
@@ -165,14 +165,14 @@ describe("global options", () => {
     const program = createProgram();
     program.exitOverride();
     // Parse with a valid command to avoid "no subcommand" help output
-    await program.parseAsync(["node", "deep-wiki", "toc", "a/b"]);
+    await program.parseAsync(["node", "deepwiki", "toc", "a/b"]);
     expect(program.opts().json).toBe(false);
   });
 
   test("--quiet flag defaults to false", async () => {
     const program = createProgram();
     program.exitOverride();
-    await program.parseAsync(["node", "deep-wiki", "toc", "a/b"]);
+    await program.parseAsync(["node", "deepwiki", "toc", "a/b"]);
     expect(program.opts().quiet).toBe(false);
   });
 });
@@ -184,7 +184,7 @@ describe("--version", () => {
     program.configureOutput({ writeOut: () => {} });
 
     try {
-      program.parse(["node", "deep-wiki", "--version"]);
+      program.parse(["node", "deepwiki", "--version"]);
     } catch (err: any) {
       // Commander throws on exitOverride for --version
       expect(err.code).toBe("commander.version");
@@ -199,7 +199,7 @@ describe("--help", () => {
     program.configureOutput({ writeOut: () => {} });
 
     try {
-      program.parse(["node", "deep-wiki", "--help"]);
+      program.parse(["node", "deepwiki", "--help"]);
     } catch (err: any) {
       expect(err.code).toBe("commander.helpDisplayed");
     }

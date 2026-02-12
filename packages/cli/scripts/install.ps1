@@ -1,13 +1,13 @@
 $ErrorActionPreference = "Stop"
 
-$Repo = "seflless/deep-wiki"
-$BinaryName = "deep-wiki"
-$InstallDir = if ($env:DEEP_WIKI_INSTALL_DIR) { $env:DEEP_WIKI_INSTALL_DIR } else { "$env:LOCALAPPDATA\deep-wiki" }
+$Repo = "seflless/deepwiki"
+$BinaryName = "deepwiki"
+$InstallDir = if ($env:DEEPWIKI_INSTALL_DIR) { $env:DEEPWIKI_INSTALL_DIR } else { "$env:LOCALAPPDATA\deepwiki" }
 
-function Write-Info($msg) { Write-Host "[deep-wiki] $msg" -ForegroundColor Green }
-function Write-Err($msg) { Write-Host "[deep-wiki] $msg" -ForegroundColor Red; exit 1 }
+function Write-Info($msg) { Write-Host "[deepwiki] $msg" -ForegroundColor Green }
+function Write-Err($msg) { Write-Host "[deepwiki] $msg" -ForegroundColor Red; exit 1 }
 
-Write-Info "Installing deep-wiki..."
+Write-Info "Installing deepwiki..."
 
 # Detect architecture
 $arch = if ([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture -eq "X64") { "x64" }
@@ -39,4 +39,4 @@ if ($userPath -notlike "*$InstallDir*") {
 }
 
 Write-Info "Installed to $dest"
-Write-Info "Run 'deep-wiki --help' to get started"
+Write-Info "Run 'deepwiki --help' to get started"

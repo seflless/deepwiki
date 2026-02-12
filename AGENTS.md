@@ -1,13 +1,13 @@
-# deep-wiki
+# deepwiki
 
 CLI wrapper around DeepWiki's MCP server. Monorepo with Bun workspaces.
 
 ## Structure
 
 ```
-packages/cli/       # @seflless/deep-wiki — the CLI (TypeScript, Bun)
+packages/cli/       # @seflless/deepwiki — the CLI (TypeScript, Bun)
 packages/website/   # Landing page (Vite, vanilla TS)
-skills/deep-wiki/   # Claude Code skill
+skills/deepwiki/   # Claude Code skill
 docs/plans/         # Feature plans
 ```
 
@@ -15,8 +15,8 @@ docs/plans/         # Feature plans
 
 ```bash
 bun install                          # Install deps
-bun deep-wiki toc facebook/react     # Run CLI from source (no build needed)
-bun deep-wiki ask oven-sh/bun "Q?"   # All CLI args work after `bun deep-wiki`
+bun deepwiki toc facebook/react     # Run CLI from source (no build needed)
+bun deepwiki ask oven-sh/bun "Q?"   # All CLI args work after `bun deepwiki`
 bun run --cwd packages/cli build     # Build single JS bundle to dist/
 bun test                             # Run all tests
 bun run --cwd packages/website dev   # Website dev server
@@ -38,14 +38,14 @@ bun run --cwd packages/website dev   # Website dev server
 - Exit code 1 = server/network error, 2 = usage error
 - Commander.js for CLI framework
 - `bun test` for testing, mock fetch (no live network calls in tests)
-- `npx @seflless/deep-wiki` is the primary user-facing invocation pattern
+- `npx @seflless/deepwiki` is the primary user-facing invocation pattern
 
 ## Known Issues
 
-- `npx @seflless/deep-wiki` fails with `command not found` when run from inside the monorepo — npm resolves the local workspace instead of the registry. Use `bun deep-wiki` locally. Works fine from any other directory.
+- `npx @seflless/deepwiki` fails with `command not found` when run from inside the monorepo — npm resolves the local workspace instead of the registry. Use `bun deepwiki` locally. Works fine from any other directory.
 
 ## npm Package
 
-- Scoped: `@seflless/deep-wiki`
-- Binary: `deep-wiki`
+- Scoped: `@seflless/deepwiki`
+- Binary: `deepwiki`
 - Public access, MIT license
