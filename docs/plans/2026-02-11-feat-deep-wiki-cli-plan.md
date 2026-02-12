@@ -236,10 +236,10 @@ Simple single-page site at `packages/website/`, built with Vite (vanilla TS temp
 
 ### Phase 2: Distribution
 
-- [ ] npm publish config (name: @seflless/deep-wiki, bin, files, access)
-- [ ] `install.sh` script for curl|bash
-- [ ] `install.ps1` for PowerShell
-- [ ] Cross-compile script (all 5 targets)
+- [x] npm publish config (name: @seflless/deep-wiki, bin, files, access)
+- [x] `install.sh` script for curl|bash
+- [x] `install.ps1` for PowerShell
+- [x] Cross-compile script (all 5 targets)
 
 ### Phase 2b: CI (later)
 
