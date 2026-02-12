@@ -137,8 +137,11 @@ git -C "$REPO_ROOT" push origin --delete "$RELEASE_BRANCH" 2>/dev/null || true
 # --- Return to original branch ---
 git -C "$REPO_ROOT" checkout "$ORIGINAL_BRANCH"
 git -C "$REPO_ROOT" branch -D "$RELEASE_BRANCH" 2>/dev/null || true
-git -C "$REPO_ROOT" fetch origin main
-git -C "$REPO_ROOT" reset --hard origin/main
+
+# Pull the merge commit if on a branch that tracks main
+if [[ "$ORIGINAL_BRANCH" == "main" ]] || git -C "$REPO_ROOT" config "branch.$ORIGINAL_BRANCH.merge" 2>/dev/null | grep -q main; then
+  git -C "$REPO_ROOT" pull --ff-only origin main 2>/dev/null || true
+fi
 
 # --- Tag and push ---
 git -C "$REPO_ROOT" tag "$TAG"
