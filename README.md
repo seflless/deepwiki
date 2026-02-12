@@ -1,19 +1,35 @@
 # deep-wiki
 
-Query any public GitHub repo's docs from the terminal. Powered by [DeepWiki](https://deepwiki.com).
+Give your coding agent instant knowledge of any public GitHub repo. Powered by [DeepWiki](https://deepwiki.com).
 
-## Quick Start
+## Install the Skill
 
-No install needed — just use `npx`:
+Add deep-wiki to [Claude Code](https://docs.anthropic.com/en/docs/claude-code) so your agent can look up docs for any public repo on demand:
+
+```bash
+npx skills add https://github.com/seflless/deep-wiki npx --skill deep-wiki
+```
+
+That's it. Claude Code will now use deep-wiki automatically when it needs to understand an unfamiliar codebase.
+
+## Install the CLI
+
+Also available as a standalone CLI — useful for piping repo knowledge into any agent or workflow. No install needed, just use `npx`:
 
 ```bash
 npx @seflless/deep-wiki toc facebook/react
 ```
 
+Or install globally:
+
+```bash
+npm install -g @seflless/deep-wiki
+```
+
 ## Usage
 
 ```bash
-# Table of contents
+# Table of contents for a repo
 npx @seflless/deep-wiki toc facebook/react
 
 # Full wiki
@@ -29,40 +45,17 @@ npx @seflless/deep-wiki ask facebook/react vercel/next.js "How do server compone
 npx @seflless/deep-wiki wiki anthropics/claude-code --json > docs.json
 ```
 
-## Install Globally (optional)
-
-```bash
-npm install -g @seflless/deep-wiki
-deep-wiki toc facebook/react
-```
-
-Or via curl:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/seflless/deep-wiki/main/packages/cli/scripts/install.sh | bash
-```
-
-## Flags
+### Flags
 
 | Flag | Description |
 |------|-------------|
 | `--json` | Output raw JSON |
 | `-q, --quiet` | Suppress spinners |
 | `--no-color` | Disable colors |
-| `--help` | Show help |
-| `--version` | Show version |
 
-## Claude Code Skill
+## How It Works
 
-```bash
-npx skills add https://github.com/seflless/deep-wiki npx --skill deep-wiki
-```
-
-Once installed, Claude Code can look up docs for any public repo automatically.
-
-## How it works
-
-deep-wiki is a thin CLI wrapper around [DeepWiki's](https://deepwiki.com) MCP server. It sends requests to DeepWiki's public API and formats the responses for terminal use.
+deep-wiki is a thin CLI wrapper around [DeepWiki's](https://deepwiki.com) MCP server. It sends JSON-RPC requests to DeepWiki's public API and formats the responses for terminal and agent consumption.
 
 ## License
 

@@ -1,11 +1,13 @@
 :root {
-  --bg: #0a0a0a;
-  --fg: #e5e5e5;
-  --muted: #888;
+  --bg: #09090b;
+  --fg: #fafafa;
+  --muted: #a1a1aa;
   --accent: #3b82f6;
-  --code-bg: #1a1a2e;
-  --border: #333;
+  --accent-dim: rgba(59, 130, 246, 0.15);
+  --code-bg: #18181b;
+  --border: #27272a;
   --radius: 8px;
+  --font-mono: "SF Mono", "Fira Code", "JetBrains Mono", monospace;
 }
 
 * {
@@ -20,56 +22,127 @@ body {
   color: var(--fg);
   line-height: 1.6;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 main {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: 80px 24px 48px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+
+.badge a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.badge a:hover {
+  color: var(--fg);
 }
 
 /* Hero */
 .hero {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 72px;
 }
 
 .hero h1 {
   font-size: 3.5rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   margin-bottom: 12px;
+  background: linear-gradient(to bottom right, #fff 30%, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .tagline {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--muted);
-  margin-bottom: 32px;
+  margin-bottom: 36px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Install box */
+.hero-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+/* Install boxes */
 .install-box {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
   background: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 12px 16px;
-  font-family: "SF Mono", "Fira Code", monospace;
-  font-size: 0.9rem;
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.install-box.primary {
+  border-color: rgba(59, 130, 246, 0.3);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), var(--code-bg));
+}
+
+.install-box .label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.cmd-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cmd-row code {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--fg);
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .copy-btn {
+  flex-shrink: 0;
   background: none;
   border: 1px solid var(--border);
   color: var(--muted);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-family: inherit;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.15s, border-color 0.15s;
 }
 
 .copy-btn:hover {
@@ -77,108 +150,169 @@ main {
   border-color: var(--fg);
 }
 
+/* Sections */
+section {
+  margin-bottom: 64px;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+/* CLI section */
+.cli {
+  text-align: center;
+}
+
+.cli .install-box {
+  display: inline-block;
+  max-width: 100%;
+}
+
 /* Examples */
-.examples {
-  margin-bottom: 80px;
-}
-
-.examples h2 {
-  font-size: 1.5rem;
-  margin-bottom: 24px;
-}
-
 .example-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 .example {
   background: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 16px;
 }
 
 .example h3 {
-  font-size: 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   margin-bottom: 8px;
 }
 
 .example pre {
-  font-family: "SF Mono", "Fira Code", monospace;
-  font-size: 0.9rem;
-  overflow-x: auto;
-}
-
-/* Skill section */
-.skill {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.skill h2 {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-}
-
-.skill p {
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-
-.skill .install-box {
+  font-family: var(--font-mono);
   font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  color: var(--fg);
+}
+
+.example:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+/* Flags */
+.flag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flag {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 14px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.flag code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.flag span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* How it works */
+.how-it-works p {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 /* Links */
 .links {
   text-align: center;
-  margin-bottom: 40px;
-}
-
-.links a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.links a:hover {
-  text-decoration: underline;
+  margin-bottom: 32px;
 }
 
 .sep {
-  color: var(--muted);
-  margin: 0 8px;
+  color: var(--border);
+  margin: 0 10px;
 }
 
 /* Footer */
 footer {
   text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+footer p {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 footer a {
   color: var(--muted);
   text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+footer a:hover {
+  color: var(--fg);
 }
 
 /* Responsive */
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   main {
-    padding: 40px 16px;
+    padding: 48px 16px 32px;
   }
 
   .hero h1 {
     font-size: 2.5rem;
   }
 
-  .install-box {
-    font-size: 0.75rem;
+  .tagline {
+    font-size: 1.05rem;
+  }
+
+  .example-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cmd-row {
     flex-wrap: wrap;
-    justify-content: center;
+  }
+
+  .cmd-row code {
+    font-size: 0.75rem;
+  }
+
+  .flag {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .flag code {
+    min-width: auto;
   }
 }
