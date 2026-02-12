@@ -1,5 +1,5 @@
 {
   "buildCommand": "npx vite build",
   "outputDirectory": "dist",
-  "installCommand": "npm install"
+  "installCommand": "bun install"
 }
