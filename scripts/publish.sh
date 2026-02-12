@@ -104,7 +104,7 @@ PUSHED_BRANCH=true
 # --- Create PR ---
 PR_URL=$(gh pr create \
   --repo seflless/deep-wiki \
-  --base "$ORIGINAL_BRANCH" \
+  --base main \
   --head "$RELEASE_BRANCH" \
   --title "release: v$NEW_VERSION" \
   --body "Version bump to $NEW_VERSION")
