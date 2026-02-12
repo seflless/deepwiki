@@ -49,3 +49,4 @@ bun run --cwd packages/website dev   # Website dev server
 - Scoped: `@seflless/deepwiki`
 - Binary: `deepwiki`
 - Public access, MIT license
+- README: root `README.md` is source of truth. `prepublishOnly` copies it into `packages/cli/` before publish. The copy is gitignored — do NOT symlink (npm skips symlinks when packing).
