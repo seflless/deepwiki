@@ -40,6 +40,10 @@ bun run --cwd packages/website dev   # Website dev server
 - `bun test` for testing, mock fetch (no live network calls in tests)
 - `npx @seflless/deep-wiki` is the primary user-facing invocation pattern
 
+## Known Issues
+
+- `npx @seflless/deep-wiki` fails with `command not found` when run from inside the monorepo — npm resolves the local workspace instead of the registry. Use `bun deep-wiki` locally. Works fine from any other directory.
+
 ## npm Package
 
 - Scoped: `@seflless/deep-wiki`

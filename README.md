@@ -1,59 +1,49 @@
 # deep-wiki
 
-Give your coding agent instant knowledge of any public GitHub repo. Powered by [DeepWiki](https://deepwiki.com).
+Give your coding agent instant knowledge of any public GitHub repo.
 
-## Install the Skill
+Inspired by Andrej Karpathy's [post on DeepWiki](https://x.com/karpathy/status/2021633574089416993) and the increasing malleability of software.
 
-Add deep-wiki to [Claude Code](https://docs.anthropic.com/en/docs/claude-code) so your agent can look up docs for any public repo on demand:
+**Install the [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code)** so Claude can use [DeepWiki](https://deepwiki.com) directly on your behalf:
 
 ```bash
 npx skills add https://github.com/seflless/deep-wiki npx --skill deep-wiki
 ```
 
-That's it. Claude Code will now use deep-wiki automatically when it needs to understand an unfamiliar codebase.
+**Ask anything:**
 
-## Install the CLI
+> "How does the fiber reconciler work in facebook/react?"
 
-Also available as a standalone CLI — useful for piping repo knowledge into any agent or workflow. No install needed, just use `npx`:
+> "What's the architecture of oven-sh/bun?"
 
-```bash
-npx @seflless/deep-wiki toc facebook/react
-```
+> "Compare how facebook/react and vercel/next.js handle server components"
 
-Or install globally:
+## CLI
+
+There's also a CLI if you want to use deep-wiki directly.
 
 ```bash
 npm install -g @seflless/deep-wiki
 ```
 
-## Usage
+Or use `npx @seflless/deep-wiki` without installing.
 
 ```bash
-# Table of contents for a repo
-npx @seflless/deep-wiki toc facebook/react
-
-# Full wiki
-npx @seflless/deep-wiki wiki oven-sh/bun
-
-# Ask a question
-npx @seflless/deep-wiki ask facebook/react "How does the fiber reconciler work?"
-
-# Ask across multiple repos (max 10)
-npx @seflless/deep-wiki ask facebook/react vercel/next.js "How do server components work?"
-
-# Pipe JSON to a file
-npx @seflless/deep-wiki wiki anthropics/claude-code --json > docs.json
+deep-wiki ask facebook/react "How does the fiber reconciler work?"
+deep-wiki wiki oven-sh/bun
+deep-wiki toc facebook/react
+deep-wiki wiki anthropics/claude-code --json > docs.json
 ```
 
 ### Flags
 
-| Flag | Description |
-|------|-------------|
-| `--json` | Output raw JSON |
+| Flag          | Description       |
+| ------------- | ----------------- |
+| `--json`      | Output raw JSON   |
 | `-q, --quiet` | Suppress spinners |
-| `--no-color` | Disable colors |
+| `--no-color`  | Disable colors    |
 
-## How It Works
+## How it works
 
 deep-wiki is a thin CLI wrapper around [DeepWiki's](https://deepwiki.com) MCP server. It sends JSON-RPC requests to DeepWiki's public API and formats the responses for terminal and agent consumption.
 

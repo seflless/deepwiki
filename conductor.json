@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "setup": "cp $CONDUCTOR_ROOT/.npmrc .npmrc && bun install",
+    "setup": "ln -s '$CONDUCTOR_ROOT_PATH/.npmrc' .npmrc && bun install",
     "run": ""
   }
 }
