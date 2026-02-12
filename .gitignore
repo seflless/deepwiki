@@ -1,6 +1,5 @@
 node_modules/
 dist/
-bun.lockb
 .DS_Store
 *.tgz
 .context/

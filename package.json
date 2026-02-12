@@ -1,4 +1,7 @@
 {
   "private": true,
-  "workspaces": ["packages/*"]
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "deep-wiki": "bun run packages/cli/src/index.ts"
+  }
 }
