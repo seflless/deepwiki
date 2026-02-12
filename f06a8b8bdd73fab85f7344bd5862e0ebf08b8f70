@@ -1,0 +1,38 @@
+packages/website/index.html
+  bfb9eb31362b6043 28
+packages/cli/package.json
+  0845b6874da68aca 3,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "f06a8b8bdd73fab85f7344bd5862e0ebf08b8f70",
+  "prompts": {
+    "0845b6874da68aca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2f94f418-7f58-42d8-a312-d1ee6783f398",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 3,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "bfb9eb31362b6043": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "01958466-b365-4cd7-bd16-b85aa7b6054b",
+        "model": "composer-1.5"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
