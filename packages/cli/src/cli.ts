@@ -72,8 +72,10 @@ export function createProgram(): Command {
   return program;
 }
 
+const REPO_RE = /^[a-zA-Z0-9._-]+\/[a-zA-Z0-9._-]+$/;
+
 function validateRepo(repo: string) {
-  if (!repo.includes("/")) {
+  if (!REPO_RE.test(repo)) {
     throw new UsageError(
       `Invalid repo "${repo}" — expected format: owner/repo`,
     );

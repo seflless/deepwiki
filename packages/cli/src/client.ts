@@ -38,7 +38,11 @@ function makeRequest(
 function parseSSE(raw: string): JsonRpcResponse {
   for (const line of raw.split("\n")) {
     if (line.startsWith("data: ")) {
-      return JSON.parse(line.slice(6));
+      try {
+        return JSON.parse(line.slice(6));
+      } catch {
+        throw new ServerError("Malformed JSON in SSE response");
+      }
     }
   }
   throw new ServerError("No data in SSE response");
@@ -50,14 +54,28 @@ async function callMcp(
 ): Promise<string> {
   const body = makeRequest("tools/call", { name: toolName, arguments: args });
 
-  const res = await fetch(MCP_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json, text/event-stream",
-    },
-    body: JSON.stringify(body),
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 60_000);
+
+  let res: Response;
+  try {
+    res = await fetch(MCP_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json, text/event-stream",
+      },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+  } catch (err) {
+    clearTimeout(timeoutId);
+    if (err instanceof DOMException && err.name === "AbortError") {
+      throw new ServerError("Request timed out after 60s");
+    }
+    throw err;
+  }
+  clearTimeout(timeoutId);
 
   if (!res.ok) {
     throw new ServerError(
@@ -72,7 +90,11 @@ async function callMcp(
   if (contentType.includes("text/event-stream")) {
     rpc = parseSSE(raw);
   } else {
-    rpc = JSON.parse(raw);
+    try {
+      rpc = JSON.parse(raw);
+    } catch {
+      throw new ServerError("Malformed JSON in response");
+    }
   }
 
   if (rpc.error) {

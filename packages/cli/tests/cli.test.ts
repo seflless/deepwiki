@@ -49,6 +49,48 @@ describe("repo validation", () => {
     // This should not throw (command handler is mocked)
     await program.parseAsync(["node", "deep-wiki", "toc", "facebook/react"]);
   });
+
+  test("rejects repo with empty owner", async () => {
+    const program = createProgram();
+    program.exitOverride();
+
+    try {
+      await program.parseAsync(["node", "deep-wiki", "toc", "/repo"]);
+      expect(true).toBe(false);
+    } catch (err) {
+      expect(err).toBeInstanceOf(UsageError);
+    }
+  });
+
+  test("rejects repo with empty name", async () => {
+    const program = createProgram();
+    program.exitOverride();
+
+    try {
+      await program.parseAsync(["node", "deep-wiki", "toc", "owner/"]);
+      expect(true).toBe(false);
+    } catch (err) {
+      expect(err).toBeInstanceOf(UsageError);
+    }
+  });
+
+  test("rejects repo with multiple slashes", async () => {
+    const program = createProgram();
+    program.exitOverride();
+
+    try {
+      await program.parseAsync(["node", "deep-wiki", "toc", "a/b/c"]);
+      expect(true).toBe(false);
+    } catch (err) {
+      expect(err).toBeInstanceOf(UsageError);
+    }
+  });
+
+  test("accepts repo with dots, hyphens, underscores", async () => {
+    const program = createProgram();
+    program.exitOverride();
+    await program.parseAsync(["node", "deep-wiki", "toc", "my-org/my_repo.js"]);
+  });
 });
 
 describe("ask command validation", () => {
