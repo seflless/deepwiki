@@ -12,6 +12,7 @@ if (!content.startsWith("#!")) {
 await $`chmod +x dist/index.js`;
 
 // Copy root README into package for npm publish
-await $`cp ../../README.md README.md`;
+const readme = await Bun.file("../../README.md").text();
+await Bun.write("README.md", readme);
 
 console.log("Built dist/index.js");
