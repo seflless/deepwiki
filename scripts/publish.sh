@@ -5,6 +5,7 @@ BUMP_TYPE="${1:-}"
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CLI_DIR="$REPO_ROOT/packages/cli"
 PKG="$CLI_DIR/package.json"
+REPO="seflless/deep-wiki"
 
 # --- Validate args ---
 if [[ ! "$BUMP_TYPE" =~ ^(patch|minor|major)$ ]]; then
@@ -50,24 +51,31 @@ echo "Publishing $CURRENT_VERSION → $NEW_VERSION"
 CREATED_BRANCH=false
 PUSHED_BRANCH=false
 CREATED_PR=false
+PUBLISHED=false
 PR_URL=""
+PR_NUMBER=""
 
 cleanup() {
   echo ""
-  echo "Publish failed — rolling back..."
-
-  if [[ "$CREATED_PR" == true && -n "$PR_URL" ]]; then
-    echo "  Closing PR..."
-    gh pr close "$PR_URL" --delete-branch 2>/dev/null || true
+  if [[ "$PUBLISHED" == true ]]; then
+    echo "npm publish succeeded but a later step failed."
+    echo "v$NEW_VERSION is live on npm. You may need to manually:"
+    [[ "$CREATED_PR" == true ]] && echo "  - Merge PR: $PR_URL"
+    echo "  - Tag: git tag $TAG && git push origin $TAG"
+    exit 1
   fi
 
-  if [[ "$PUSHED_BRANCH" == true && "$CREATED_PR" != true ]]; then
+  echo "Publish failed — rolling back..."
+
+  if [[ "$CREATED_PR" == true && -n "$PR_NUMBER" ]]; then
+    echo "  Closing PR..."
+    gh pr close "$PR_NUMBER" --repo "$REPO" --delete-branch 2>/dev/null || true
+  elif [[ "$PUSHED_BRANCH" == true ]]; then
     echo "  Deleting remote branch..."
     git -C "$REPO_ROOT" push origin --delete "$RELEASE_BRANCH" 2>/dev/null || true
   fi
 
-  # Return to original branch and delete local release branch
-  CURRENT=$(git -C "$REPO_ROOT" branch --show-current)
+  CURRENT=$(git -C "$REPO_ROOT" branch --show-current 2>/dev/null || echo "")
   if [[ "$CURRENT" == "$RELEASE_BRANCH" ]]; then
     git -C "$REPO_ROOT" checkout "$ORIGINAL_BRANCH" 2>/dev/null || true
   fi
@@ -103,34 +111,40 @@ PUSHED_BRANCH=true
 
 # --- Create PR ---
 PR_URL=$(gh pr create \
-  --repo seflless/deep-wiki \
+  --repo "$REPO" \
   --base main \
   --head "$RELEASE_BRANCH" \
   --title "release: v$NEW_VERSION" \
   --body "Version bump to $NEW_VERSION")
+PR_NUMBER=$(echo "$PR_URL" | grep -o '[0-9]*$')
 CREATED_PR=true
 
 echo "PR created: $PR_URL"
 
 # --- Publish to npm ---
 echo "Publishing to npm..."
-cd "$CLI_DIR"
-npm publish
-cd "$REPO_ROOT"
+(cd "$CLI_DIR" && npm publish)
+PUBLISHED=true
+echo "Published to npm."
 
-# --- Merge PR ---
+# --- Merge PR via API (avoids local git checkout issues) ---
 echo "Merging PR..."
-gh pr merge "$PR_URL" --merge --delete-branch
+gh api "repos/$REPO/pulls/$PR_NUMBER/merge" -X PUT -f merge_method=merge > /dev/null
 
-# --- Return to original branch and pull ---
+# --- Delete remote release branch ---
+git -C "$REPO_ROOT" push origin --delete "$RELEASE_BRANCH" 2>/dev/null || true
+
+# --- Return to original branch ---
 git -C "$REPO_ROOT" checkout "$ORIGINAL_BRANCH"
-git -C "$REPO_ROOT" pull
+git -C "$REPO_ROOT" branch -D "$RELEASE_BRANCH" 2>/dev/null || true
+git -C "$REPO_ROOT" fetch origin main
+git -C "$REPO_ROOT" reset --hard origin/main
 
 # --- Tag and push ---
 git -C "$REPO_ROOT" tag "$TAG"
 git -C "$REPO_ROOT" push origin "$TAG"
 
-# --- Disable the trap since we succeeded ---
+# --- Done ---
 trap - ERR
 
 echo ""
