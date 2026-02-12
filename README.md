@@ -7,7 +7,7 @@ Inspired by Andrej Karpathy's [post on DeepWiki](https://x.com/karpathy/status/2
 **Install the [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code)** so Claude can use [DeepWiki](https://deepwiki.com) directly on your behalf:
 
 ```bash
-npx skills add https://github.com/seflless/deep-wiki npx --skill deep-wiki
+npx skills add https://github.com/seflless/deep-wiki --skill deep-wiki
 ```
 
 **Ask anything:**

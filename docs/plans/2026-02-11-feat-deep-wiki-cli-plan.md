@@ -11,7 +11,7 @@ CLI wrapper around DeepWiki's MCP server. Lets agents and humans query any publi
 - **npm**: `@seflless/deep-wiki`
 - **bin**: `deep-wiki`
 - **repo**: `github.com/seflless/deep-wiki`
-- **skill install**: `npx skills add https://github.com/seflless/deep-wiki npx --skill deep-wiki`
+- **skill install**: `npx skills add https://github.com/seflless/deep-wiki --skill deep-wiki`
 
 ## DeepWiki MCP Server (what we're wrapping)
 
@@ -180,7 +180,7 @@ curl -fsSL https://raw.githubusercontent.com/seflless/deep-wiki/main/packages/cl
 
 Located at `skills/deep-wiki/SKILL.md` in repo root.
 
-Install: `npx skills add https://github.com/seflless/deep-wiki npx --skill deep-wiki`
+Install: `npx skills add https://github.com/seflless/deep-wiki --skill deep-wiki`
 
 ### Skill Design
 
