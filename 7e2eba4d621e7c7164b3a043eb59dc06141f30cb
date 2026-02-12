@@ -1,0 +1,53 @@
+packages/website/index.html
+  9f223eb753768041 6,14,21,35,41,62,108-109,235,239,264,274,277,301,304,328,331,355,358,400,408,410
+  bfb9eb31362b6043 28
+packages/cli/package.json
+  9f223eb753768041 2,7,29
+  0845b6874da68aca 3,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.1",
+  "base_commit_sha": "7e2eba4d621e7c7164b3a043eb59dc06141f30cb",
+  "prompts": {
+    "0845b6874da68aca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2f94f418-7f58-42d8-a312-d1ee6783f398",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 3,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "9f223eb753768041": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ae45f8fc-5a3d-4f46-9b09-6d4338ab8c59",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 92,
+      "total_deletions": 0,
+      "accepted_lines": 25,
+      "overriden_lines": 0
+    },
+    "bfb9eb31362b6043": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "01958466-b365-4cd7-bd16-b85aa7b6054b",
+        "model": "composer-1.5"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
