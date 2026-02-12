@@ -1,0 +1,35 @@
+AGENTS.md
+  0b15ce67fe7d0afc 1-53
+packages/website/index.html
+  0b15ce67fe7d0afc 1-74
+packages/website/src/style.css
+  0b15ce67fe7d0afc 1-184
+README.md
+  0b15ce67fe7d0afc 1-57
+skills/deep-wiki/SKILL.md
+  0b15ce67fe7d0afc 1-57
+docs/plans/2026-02-11-feat-deep-wiki-cli-plan.md
+  0b15ce67fe7d0afc 252-255
+packages/website/package.json
+  0b15ce67fe7d0afc 1-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "3a2dcab0d004190b28efd494b0de042a5a9b228f",
+  "prompts": {
+    "0b15ce67fe7d0afc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "82fcac95-35bf-4eda-bc58-da1d50e16ee8",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 443,
+      "total_deletions": 4,
+      "accepted_lines": 443,
+      "overriden_lines": 0
+    }
+  }
+}
