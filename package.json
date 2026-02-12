@@ -3,6 +3,9 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "deep-wiki": "bun run packages/cli/src/index.ts",
-    "test": "bun test packages/cli/tests/"
+    "test": "bun test packages/cli/tests/",
+    "publish:patch": "bash scripts/publish.sh patch",
+    "publish:minor": "bash scripts/publish.sh minor",
+    "publish:major": "bash scripts/publish.sh major"
   }
 }
