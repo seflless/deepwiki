@@ -1,6 +1,6 @@
 {
   "name": "@seflless/deepwiki",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "CLI wrapper around DeepWiki — query any public GitHub repo's docs from the terminal",
   "type": "module",
   "bin": {
@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "bun run scripts/build.ts",
-    "prepublishOnly": "bun run build",
+    "prepublishOnly": "cp ../../README.md . && bun run build",
     "dev": "bun run src/index.ts"
   },
   "dependencies": {
