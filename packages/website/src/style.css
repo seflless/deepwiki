@@ -25,6 +25,29 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 main {
   max-width: 680px;
   margin: 0 auto;
@@ -40,6 +63,28 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Hero — left aligned */
+.hero {
+  margin-bottom: 16px;
+}
+
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  background: linear-gradient(to bottom right, #fff 30%, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Badge */
 .badge {
   display: inline-block;
@@ -48,7 +93,8 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: 100px;
   padding: 4px 14px;
-  margin-bottom: 24px;
+  position: relative;
+  top: 4px;
 }
 
 .badge a {
@@ -61,36 +107,56 @@ a:hover {
   color: var(--fg);
 }
 
-/* Hero */
-.hero {
-  text-align: center;
-  margin-bottom: 72px;
+/* Hero links (GitHub, npm icons) — inline with title */
+.hero-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  top: 4px;
 }
 
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  margin-bottom: 12px;
-  background: linear-gradient(to bottom right, #fff 30%, var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+
+.icon-link:hover {
+  color: var(--fg);
+  text-decoration: none;
 }
 
 .tagline {
   font-size: 1.2rem;
-  color: var(--muted);
-  margin-bottom: 36px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
+  color: var(--fg);
+  margin-bottom: 12px;
 }
 
-.hero-note {
-  font-size: 0.85rem;
+/* Karpathy citation */
+.karpathy-cite {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-style: italic;
   color: var(--muted);
-  margin-top: 16px;
+  margin-bottom: 36px;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.karpathy-cite:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Install skill section */
+
+.install-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 12px;
 }
 
 /* Install boxes */
@@ -99,7 +165,6 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 14px 16px;
-  text-align: left;
 }
 
 .install-box.primary {
@@ -121,38 +186,123 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
 }
 
 .cmd-row code {
   flex: 1;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--fg);
-  overflow-x: auto;
   white-space: nowrap;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
+.cmd-row code::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fade hint when content overflows */
+.cmd-row::before {
+  content: "";
+  position: absolute;
+  right: 30px;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.install-box.primary .cmd-row::before {
+  background: linear-gradient(to right, transparent, rgba(17, 18, 27, 0.95));
+}
+
+.install-box:not(.primary) .cmd-row::before {
+  background: linear-gradient(to right, transparent, var(--code-bg));
+}
+
+.cmd-row.overflows::before {
+  opacity: 1;
+}
+
+/* Copy button — icon only */
 .copy-btn {
   flex-shrink: 0;
   background: none;
-  border: 1px solid var(--border);
+  border: none;
   color: var(--muted);
-  padding: 4px 12px;
+  padding: 4px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.75rem;
-  font-family: inherit;
-  transition: color 0.15s, border-color 0.15s;
+  font-size: 0;
+  line-height: 0;
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .copy-btn:hover {
   color: var(--fg);
-  border-color: var(--fg);
+}
+
+/* Quote examples */
+.quote-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fancy-quote {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 6px 0;
+  font-size: 1rem;
+  color: var(--muted);
+  transition: color 0.15s;
+  border: none;
+  background: none;
+}
+
+.fancy-quote:hover {
+  color: var(--fg);
+}
+
+.fancy-quote em {
+  font-style: italic;
+}
+
+.quote-mark {
+  font-size: 1.4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.quote-mark.close {
+  margin-left: -2px;
+}
+
+.quote-copy {
+  opacity: 0;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+
+.fancy-quote:hover .quote-copy {
+  opacity: 1;
 }
 
 /* Sections */
 section {
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 h2 {
@@ -168,39 +318,51 @@ h2 {
 }
 
 /* CLI section */
-.cli {
-  text-align: center;
+.cli-intro {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 12px;
 }
 
-.cli .install-box {
-  display: inline-block;
-  max-width: 100%;
+.cli-alt {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 12px;
 }
 
-/* Examples */
-.example-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.cli-alt code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg);
 }
 
-.example {
+/* Examples — label above code box */
+.example-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.example-group h3 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.code-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 16px;
+  padding: 12px 14px;
 }
 
-.example h3 {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 8px;
-}
-
-.example pre {
+.code-box pre {
+  flex: 1;
+  min-width: 0;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   line-height: 1.5;
@@ -208,25 +370,37 @@ h2 {
   color: var(--fg);
 }
 
-.example:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
+.code-box .copy-btn {
+  opacity: 0;
+  transition: opacity 0.15s;
 }
 
-/* Flags */
+.code-box:hover .copy-btn {
+  opacity: 1;
+}
+
+/* Hide scrollbars in code blocks */
+.code-box pre::-webkit-scrollbar {
+  display: none;
+}
+
+.code-box pre {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Flags — clean list, no boxes */
 .flag-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .flag {
   display: flex;
   align-items: baseline;
   gap: 16px;
-  padding: 10px 14px;
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  padding: 4px 0;
 }
 
 .flag code {
@@ -250,7 +424,6 @@ h2 {
 
 /* Links */
 .links {
-  text-align: center;
   margin-bottom: 32px;
 }
 
@@ -261,20 +434,18 @@ h2 {
 
 /* Footer */
 footer {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 24px;
   border-top: 1px solid var(--border);
-}
-
-footer p {
   color: var(--muted);
   font-size: 0.8rem;
 }
 
 footer a {
   color: var(--muted);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
 }
 
 footer a:hover {
@@ -295,10 +466,6 @@ footer a:hover {
     font-size: 1.05rem;
   }
 
-  .example-grid {
-    grid-template-columns: 1fr;
-  }
-
   .cmd-row {
     flex-wrap: wrap;
   }
@@ -314,5 +481,18 @@ footer a:hover {
 
   .flag code {
     min-width: auto;
+  }
+
+  .hero-title-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .quote-copy {
+    opacity: 1;
+  }
+
+  .code-box .copy-btn {
+    opacity: 1;
   }
 }
