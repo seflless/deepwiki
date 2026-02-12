@@ -1,0 +1,25 @@
+packages/cli/README.md
+  de2b946d3e700ca2 15,17,20-29
+scripts/publish.sh
+  de2b946d3e700ca2 140-144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.2",
+  "base_commit_sha": "13c14d44672e3f852c535da9ca560d83be920853",
+  "prompts": {
+    "de2b946d3e700ca2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d997c889-718a-4886-b2a7-c889fb690e79",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Francois Laberge <francoislaberge@gmail.com>",
+      "messages": [],
+      "total_additions": 19,
+      "total_deletions": 11,
+      "accepted_lines": 19,
+      "overriden_lines": 0
+    }
+  }
+}
